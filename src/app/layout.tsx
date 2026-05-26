@@ -16,6 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://begoodshopcol.pages.dev"),
   title: "Central Tricolor 🇨🇴 — Camisetas Selección Colombia $60.000",
   description: "Camisetas Premium Selección Colombia desde $60.000 COP. Envío Gratis Contra Entrega. Escudo bordado HD, Dry-Fit, costuras reforzadas. Pide por WhatsApp.",
   keywords: ["Central Tricolor", "Selección Colombia", "Camiseta Colombia", "Jersey Colombia", "Camiseta Tricolor", "Envío Gratis", "Contra Entrega"],
