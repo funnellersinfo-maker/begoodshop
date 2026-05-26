@@ -1,31 +1,53 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Central Tricolor 🇨🇴 — Camisetas Premium Selección Colombia",
-  description: "Camisetas Premium Selección Colombia desde $60.000 · Envío Gratis Contra Entrega · Escudo bordado HD · Dry-Fit · Costuras reforzadas",
-  keywords: ["Central Tricolor", "Selección Colombia", "Camiseta Colombia", "Jersey Colombia", "Tricolor", "Envío Gratis", "Contra Entrega"],
+  title: "Central Tricolor 🇨🇴 — Camisetas Selección Colombia $60.000",
+  description: "Camisetas Premium Selección Colombia desde $60.000 COP. Envío Gratis Contra Entrega. Escudo bordado HD, Dry-Fit, costuras reforzadas. Pide por WhatsApp.",
+  keywords: ["Central Tricolor", "Selección Colombia", "Camiseta Colombia", "Jersey Colombia", "Camiseta Tricolor", "Envío Gratis", "Contra Entrega"],
   authors: [{ name: "Central Tricolor" }],
   icons: {
     icon: "/favicon.png",
   },
   openGraph: {
-    title: "Central Tricolor 🇨🇴 — Camisetas Premium Selección Colombia",
-    description: "Desde $60.000 · Envío Gratis Contra Entrega · Escudo bordado HD",
+    title: "Central Tricolor 🇨🇴 — Camisetas Selección Colombia",
+    description: "Desde $60.000 · Envío Gratis Contra Entrega · Escudo bordado HD · Dry-Fit",
     type: "website",
     locale: "es_CO",
+    url: "https://begoodshopcol.pages.dev",
+    siteName: "Central Tricolor",
+    images: [
+      {
+        url: "/jersey-caballero.jpg",
+        width: 864,
+        height: 1152,
+        alt: "Camiseta Selección Colombia Central Tricolor",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Central Tricolor 🇨🇴 — Camisetas Selección Colombia",
+    description: "Desde $60.000 · Envío Gratis Contra Entrega",
+    images: ["/jersey-caballero.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

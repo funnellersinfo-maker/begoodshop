@@ -8,7 +8,6 @@ export function CtaFinalSection() {
   const store = useCartStore()
 
   const handleWhatsApp = () => {
-    // If no selection made, default to generic message
     const state = store.gender ? store : {
       gender: null as const,
       size: null as const,
@@ -23,7 +22,6 @@ export function CtaFinalSection() {
 
     const url = getWhatsAppUrl(state)
 
-    // Track Meta Pixel
     if (typeof window !== 'undefined' && (window as unknown as Record<string, unknown>).fbq) {
       ((window as unknown as Record<string, unknown>).fbq as (event: string, name: string) => void)('track', 'Purchase')
     }
@@ -32,7 +30,7 @@ export function CtaFinalSection() {
   }
 
   return (
-    <section className="py-16 px-4">
+    <section className="py-16 px-4" aria-label="Pedido final">
       <div className="max-w-2xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -60,6 +58,7 @@ export function CtaFinalSection() {
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.95 }}
             onClick={handleWhatsApp}
+            aria-label="Pedir por WhatsApp ahora"
             className="w-full bg-tricolor-green text-white font-black text-xl py-5 rounded-xl glow-green animate-whatsapp-pulse hover:bg-green-500 transition-colors cursor-pointer"
           >
             🟢 PEDIR POR WHATSAPP AHORA

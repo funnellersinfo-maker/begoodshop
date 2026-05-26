@@ -44,7 +44,6 @@ function ProductCard({
 
   const handleChoose = () => {
     if (isMayorista) {
-      // Direct WhatsApp for mayorista
       setUserType('mayorista')
       const url = getWhatsAppUrl({
         gender: null,
@@ -57,7 +56,6 @@ function ProductCard({
         setUserType: () => {},
         reset: () => {},
       })
-      // Track Meta Pixel
       if (typeof window !== 'undefined' && (window as unknown as Record<string, unknown>).fbq) {
         ((window as unknown as Record<string, unknown>).fbq as (event: string, name: string) => void)('track', 'InitiateCheckout')
       }
@@ -93,7 +91,6 @@ function ProductCard({
       reset: () => {},
     })
 
-    // Track Meta Pixel
     if (typeof window !== 'undefined' && (window as unknown as Record<string, unknown>).fbq) {
       ((window as unknown as Record<string, unknown>).fbq as (event: string, name: string) => void)('track', 'Purchase')
     }
@@ -133,7 +130,8 @@ function ProductCard({
           >
             <img
               src={image}
-              alt={title}
+              alt={`Camiseta Selección Colombia ${title}`}
+              loading="lazy"
               className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
               style={{ transform: 'scale(0.95)' }}
             />
@@ -141,7 +139,8 @@ function ProductCard({
         ) : (
           <img
             src={image}
-            alt={title}
+            alt={`Camiseta Selección Colombia ${title}`}
+            loading="lazy"
             className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
           />
         )}
@@ -159,6 +158,7 @@ function ProductCard({
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
           onClick={handleChoose}
+          aria-label={isMayorista ? 'Cotizar al por mayor por WhatsApp' : `Elegir ${title}`}
           className={`w-full font-bold py-3 rounded-xl transition-all cursor-pointer ${
             isMayorista
               ? 'bg-tricolor-cyan text-cyber-dark hover:bg-cyan-400 glow-cyan'
@@ -190,6 +190,7 @@ function ProductCard({
                     <button
                       key={s}
                       onClick={() => handleSizeSelect(s)}
+                      aria-label={`Talla ${s}`}
                       className={`flex-1 py-2 rounded-lg font-bold text-sm transition-all cursor-pointer ${
                         selectedSize === s
                           ? 'size-btn-active'
@@ -219,6 +220,7 @@ function ProductCard({
                           <button
                             key={`f-${s}`}
                             onClick={() => setSelectedSizeFemale(s)}
+                            aria-label={`Talla ${s} dama`}
                             className={`flex-1 py-2 rounded-lg font-bold text-sm transition-all cursor-pointer ${
                               selectedSizeFemale === s
                                 ? 'size-btn-active'
@@ -244,6 +246,7 @@ function ProductCard({
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={handleWhatsApp}
+                    aria-label="Pedir por WhatsApp"
                     className="w-full mt-4 bg-tricolor-green text-white font-black py-4 rounded-xl glow-green animate-whatsapp-pulse hover:bg-green-500 transition-colors text-lg cursor-pointer"
                   >
                     🟢 PEDIR POR WHATSAPP
@@ -260,7 +263,7 @@ function ProductCard({
 
 export function CatalogSection() {
   return (
-    <section id="catalogo" className="py-16 px-4">
+    <section id="catalogo" className="py-16 px-4" aria-label="Catálogo de camisetas">
       <div className="max-w-5xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -313,7 +316,7 @@ export function CatalogSection() {
 
           {/* Mayorista */}
           <ProductCard
-            image="/jersey-caballero.jpg"
+            image="/jersey-back.jpg"
             title="Al por Mayor 🦈"
             subtitle="Desde 12 unidades · $35.000 COP c/u"
             price="$35.000 COP c/u"

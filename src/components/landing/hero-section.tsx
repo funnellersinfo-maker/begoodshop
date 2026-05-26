@@ -67,11 +67,13 @@ export function HeroSection() {
   }
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden" aria-label="Hero - Camisetas Selección Colombia">
       {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/jersey-caballero.jpg')" }}
+        role="img"
+        aria-label="Camiseta Selección Colombia amarilla"
       />
 
       {/* Dark overlay */}
@@ -117,6 +119,7 @@ export function HeroSection() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={handleCTAClick}
+            aria-label="Ver catálogo de camisetas"
             className="block w-full sm:w-auto mx-auto bg-tricolor-yellow text-cyber-dark font-black text-xl px-10 py-5 rounded-xl glow-yellow hover:bg-yellow-300 transition-colors cursor-pointer"
           >
             ⚡ VER CATÁLOGO
