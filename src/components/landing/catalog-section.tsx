@@ -15,6 +15,7 @@ interface ProductCardProps {
   badgeColor?: string
   isCombo?: boolean
   isMayorista?: boolean
+  isDama?: boolean
   accentColor?: string
   glowClass?: string
 }
@@ -30,6 +31,7 @@ function ProductCard({
   badgeColor = 'bg-tricolor-yellow/20 text-tricolor-yellow border-tricolor-yellow/40',
   isCombo = false,
   isMayorista = false,
+  isDama = false,
   accentColor = 'border-tricolor-yellow/30',
   glowClass = 'hover:shadow-[0_12px_40px_rgba(250,204,21,0.15)]',
 }: ProductCardProps) {
@@ -121,12 +123,28 @@ function ProductCard({
       )}
 
       {/* Image */}
-      <div className="relative aspect-[4/5] overflow-hidden">
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-        />
+      <div className="relative aspect-[4/5] overflow-hidden bg-cyber-dark">
+        {isDama ? (
+          <div
+            className="w-full h-full flex items-center justify-center"
+            style={{
+              clipPath: 'polygon(2% 0%, 98% 0%, 97% 25%, 91% 50%, 95% 75%, 97% 100%, 3% 100%, 5% 75%, 9% 50%, 3% 25%)',
+            }}
+          >
+            <img
+              src={image}
+              alt={title}
+              className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              style={{ transform: 'scale(0.95)' }}
+            />
+          </div>
+        ) : (
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-cyber-card via-transparent to-transparent" />
       </div>
 
@@ -274,11 +292,12 @@ export function CatalogSection() {
 
           {/* Dama */}
           <ProductCard
-            image="/jersey-back.jpg"
+            image="/jersey-caballero.jpg"
             title="Modelo Dama"
             subtitle="Corte femenino · Diseñada para ti"
             price="$60.000 COP"
             badge="🚚 Envío GRATIS"
+            isDama
           />
 
           {/* Combo Pareja */}
@@ -294,7 +313,7 @@ export function CatalogSection() {
 
           {/* Mayorista */}
           <ProductCard
-            image="/jersey-back.jpg"
+            image="/jersey-caballero.jpg"
             title="Al por Mayor 🦈"
             subtitle="Desde 12 unidades · $35.000 COP c/u"
             price="$35.000 COP c/u"
