@@ -265,7 +265,7 @@ export function CatalogSection() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {/* Caballero */}
           <ProductCard
-            image="/jersey-caballero.webp"
+            image="/jersey-caballero.jpg"
             title="Modelo Caballero"
             subtitle="Corte clásico · Horma perfecta"
             price="$60.000 COP"
@@ -274,7 +274,7 @@ export function CatalogSection() {
 
           {/* Dama */}
           <ProductCard
-            image="/jersey-dama.webp"
+            image="/jersey-back.jpg"
             title="Modelo Dama"
             subtitle="Corte femenino · Diseñada para ti"
             price="$60.000 COP"
@@ -283,7 +283,7 @@ export function CatalogSection() {
 
           {/* Combo Pareja */}
           <ProductCard
-            image="/jersey-combo.webp"
+            image="/jersey-caballero.jpg"
             title="Combo Pareja 🔥"
             subtitle="Caballero + Dama · Precio especial"
             price="Precio especial combo"
@@ -294,7 +294,7 @@ export function CatalogSection() {
 
           {/* Mayorista */}
           <ProductCard
-            image="/jersey-bg.webp"
+            image="/jersey-back.jpg"
             title="Al por Mayor 🦈"
             subtitle="Desde 12 unidades · $35.000 COP c/u"
             price="$35.000 COP c/u"
