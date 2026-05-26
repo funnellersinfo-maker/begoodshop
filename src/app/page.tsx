@@ -6,6 +6,7 @@ import { GuaranteesSection } from '@/components/landing/guarantees-section'
 import { CtaFinalSection } from '@/components/landing/cta-final-section'
 import { Footer } from '@/components/landing/footer'
 import { WhatsAppFloat } from '@/components/landing/whatsapp-float'
+import { BackgroundAudio } from '@/components/landing/background-audio'
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       </main>
       <Footer />
       <WhatsAppFloat />
+      <BackgroundAudio />
     </div>
   )
 }

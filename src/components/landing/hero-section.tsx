@@ -1,12 +1,11 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { CountdownTimer } from './countdown-timer'
 import confetti from 'canvas-confetti'
 
 export function HeroSection() {
-  const audioRef = useRef<HTMLAudioElement | null>(null)
   const [viewers, setViewers] = useState(() => Math.floor(Math.random() * 20) + 30)
 
   useEffect(() => {
@@ -47,13 +46,6 @@ export function HeroSection() {
   }, [])
 
   const handleCTAClick = () => {
-    // Play audio
-    if (audioRef.current) {
-      audioRef.current.play().catch(() => {
-        // Autoplay blocked, that's ok
-      })
-    }
-
     // Track Meta Pixel event
     if (typeof window !== 'undefined' && (window as unknown as Record<string, unknown>).fbq) {
       ((window as unknown as Record<string, unknown>).fbq as (event: string, name: string) => void)('track', 'ViewContent')
@@ -139,9 +131,6 @@ export function HeroSection() {
           </motion.div>
         </motion.div>
       </div>
-
-      {/* Audio element */}
-      <audio ref={audioRef} src="/song-1-tricolor.mp3" preload="none" />
     </section>
   )
 }
